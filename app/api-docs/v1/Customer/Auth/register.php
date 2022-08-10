@@ -12,7 +12,7 @@ use OpenApi\Annotations as OA;
  *         @OA\MediaType(
  *             mediaType="multipart/form-data",
  *             @OA\Schema(
- *   required={"mobile","password","fname","lname","password_confirmation"},
+ *   required={"name","family","email","password"},
  * @OA\Property(property="name", type="string"),
  * @OA\Property(property="family", type="string"),
  * @OA\Property(property="email", type="nubmer"),
