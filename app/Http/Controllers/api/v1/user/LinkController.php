@@ -179,14 +179,14 @@ class LinkController extends Controller
     {
         $data = [
             'main_link' => $request->input('link'),
-            'shorten_link' => '/'.$this->generateLink(),
+            'shorten_link' => $this->generateLink(),
             'user_id' => Auth::guard('api')->user()->id
         ];
         DB::beginTransaction();
         try{
             $this->linkRepository->create($data);
             DB::commit();
-            return $this->successWithDataRespond( [ 'main-link' => $data['main_link'] , 'shorten_link' => url('').$data['shorten_link'] ],'عملیات موفق');
+            return $this->successWithDataRespond( [ 'main-link' => $data['main_link'] , 'shorten_link' => url('').'/'.$data['shorten_link'] ],'عملیات موفق');
         } catch(Exception $error){
             DB::rollBack();
             return $this->errorRespond('خظا در عملیات');
