@@ -6,7 +6,7 @@
     },
     "servers": [
         {
-            "url": "http://localhost:8000/api/v1/"
+            "url": "api/v1/"
         }
     ],
     "paths": {
@@ -337,7 +337,7 @@
                 },
                 "security": [
                     {
-                        "Bearer ": []
+                        "Bearer": []
                     }
                 ]
             }
@@ -471,7 +471,7 @@
                 },
                 "security": [
                     {
-                        "Bearer ": []
+                        "Bearer": []
                     }
                 ]
             }
@@ -481,8 +481,6 @@
         "securitySchemes": {
             "Bearer": {
                 "type": "http",
-                "name": "Authorization",
-                "in": "header",
                 "bearerFormat": "JWT",
                 "scheme": "bearer"
             }

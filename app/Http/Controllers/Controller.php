@@ -17,17 +17,14 @@ use OpenApi\Annotations as OA;
  *
  *
  * @OA\Server(
- *      url="http://localhost:8000/api/v1/",
+ *      url="api/v1/",
  * )
- *
  *
  * @OA\SecurityScheme(
  *       scheme="bearer",
  *       securityScheme="Bearer",
  *       type="http",
  *       bearerFormat="JWT",
- *       in="header",
- *       name="Authorization",
  * )
  */
 class Controller extends BaseController

@@ -105,9 +105,9 @@ class LinkController extends Controller
      * @OA\Get(
      * path="/link/shorten?link=your-link",
      * tags={"Links"},
+     * security={{ "Bearer":{} }},
      * summary="Shorten Link",
      * description="Shorten Link",
-     * security={{"Bearer ":{}}},
      *
      *     @OA\Parameter(
      *          name="link",
@@ -202,7 +202,7 @@ class LinkController extends Controller
      * tags={"Links"},
      * summary="Show All Links",
      * description="Show All Links",
-     * security={{"Bearer ":{}}},
+     * security={{ "Bearer":{} }},
      *
      * @OA\Response(
      *          response=200,
