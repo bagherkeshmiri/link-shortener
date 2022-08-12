@@ -99,38 +99,6 @@
                                 }
                             }
                         }
-                    },
-                    "404": {
-                        "description": "Not Found ",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "error": {
-                                            "properties": {
-                                                "code": {
-                                                    "type": "number",
-                                                    "default": "404"
-                                                },
-                                                "details": {
-                                                    "type": "string"
-                                                }
-                                            },
-                                            "type": "object"
-                                        },
-                                        "message": {
-                                            "type": "string",
-                                            "default": "رکورد مورد نظر یافت نشد"
-                                        },
-                                        "success": {
-                                            "type": "boolean",
-                                            "default": "false"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
                     }
                 }
             }
@@ -225,7 +193,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ]
             }
         },
         "/link/shorten?link=your-link": {
@@ -263,6 +236,140 @@
                                                 "shorten_link": {
                                                     "type": "string",
                                                     "default": "http://localhost:8000/EUhylqvfMI"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "عملیات موفق"
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "true"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "properties": {
+                                                "code": {
+                                                    "type": "number",
+                                                    "default": "400"
+                                                },
+                                                "details": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "خطا در عملیات"
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "properties": {
+                                                "code": {
+                                                    "type": "number",
+                                                    "default": "404"
+                                                },
+                                                "details": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "کاربر مورد نظر یافت نشد"
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": "false"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer ": []
+                    }
+                ]
+            }
+        },
+        "/link/all": {
+            "get": {
+                "tags": [
+                    "Links"
+                ],
+                "summary": "Show All Links",
+                "description": "Show All Links",
+                "operationId": "e469ecf091e5ed90c5793ec32f7236e6",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "main-link": {
+                                                    "type": "string",
+                                                    "default": "https://www.zoomit.ir/tech-iran/384961-protection-of-childrens-online-data-neglected-in-iran/"
+                                                },
+                                                "shorten_link": {
+                                                    "type": "string",
+                                                    "default": "http://localhost:8000/EUhylqvfMI"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "default": "2022-08-12 11:12:25"
                                                 }
                                             },
                                             "type": "object"

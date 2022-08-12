@@ -9,5 +9,8 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/{link}',[LinkController::class , 'transmitter']);
+
+Route::get('/test', function(){ dd('asdaad');});
+Route::get('/', function(){ dd('asdaad');});
+// Route::get('/{link}',[LinkController::class , 'transmitter']);
 

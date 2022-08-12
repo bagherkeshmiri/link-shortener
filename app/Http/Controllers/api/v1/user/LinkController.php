@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers\api\v1\user;
 
-use App\Http\Controllers\api\Traits\ApiResponder;
-use App\Http\Controllers\Controller;
-use App\Repositories\Link\LinkRepositoryInterface;
 use Exception;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use OpenApi\Annotations as OA;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Resources\UserLinksResource;
+use App\Http\Controllers\api\Traits\ApiResponder;
+use App\Repositories\Link\LinkRepositoryInterface;
 
 
 
@@ -60,15 +61,11 @@ use OpenApi\Annotations as OA;
  *              )
  *          )
  *      ),
+ * security={
+ *   {"Authorization":{}}
+ *     },
  *   )
- *
- *
-
  */
-
-
-
-
 class LinkController extends Controller
 {
     use ApiResponder;
@@ -194,5 +191,78 @@ class LinkController extends Controller
             DB::rollBack();
             return $this->errorRespond('خظا در عملیات');
         }
+    }
+
+
+
+    /**
+     *
+     * @OA\Get(
+     * path="/link/all",
+     * tags={"Links"},
+     * summary="Show All Links",
+     * description="Show All Links",
+     * security={{"Bearer ":{}}},
+     *
+     * @OA\Response(
+     *          response=200,
+     *          description="Success",
+     *          @OA\MediaType(
+     *              mediaType="application/json",
+     *              @OA\Schema(
+     *                  @OA\Property(property="data", type="object",
+     *                      @OA\Property(property="main-link", type="string",default="https://www.zoomit.ir/tech-iran/384961-protection-of-childrens-online-data-neglected-in-iran/"),
+     *                      @OA\Property(property="shorten_link", type="string",default="http://localhost:8000/EUhylqvfMI"),
+     *                      @OA\Property(property="created_at", type="string",default="2022-08-12 11:12:25"),
+     *                  ),
+     *                  @OA\Property(property="message",type="string", default="عملیات موفق"),
+     *                  @OA\Property(property="success",type="boolean", default="true")
+     *              )
+     *          )
+     *      ),
+     * @OA\Response(
+     *          response=400,
+     *          description="Bad Request",
+     *          @OA\MediaType(
+     *              mediaType="application/json",
+     *              @OA\Schema(
+     *                  @OA\Property(property="error", type="object",
+     *                      @OA\Property(property="code", type="number",default="400"),
+     *                      @OA\Property(property="details",type="string")
+     *                  ),
+     *                  @OA\Property(property="message",type="string", default="خطا در عملیات"),
+     *                  @OA\Property(property="success",type="boolean", default="false")
+     *              )
+     *          )
+     *      ),
+     * @OA\Response(
+     *          response=404,
+     *          description="Not Found",
+     *          @OA\MediaType(
+     *              mediaType="application/json",
+     *              @OA\Schema(
+     *                  @OA\Property(property="error", type="object",
+     *                      @OA\Property(property="code", type="number",default="404"),
+     *                      @OA\Property(property="details",type="string")
+     *                  ),
+     *                  @OA\Property(property="message",type="string", default="کاربر مورد نظر یافت نشد"),
+     *                  @OA\Property(property="success",type="boolean", default="false")
+     *              )
+     *          )
+     *      ),
+     * @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *          @OA\MediaType(
+     *              mediaType="application/json",
+     *              @OA\Schema(
+     *                  @OA\Property(property="message",type="string", default="Unauthenticated"),
+     *              )
+     *          )
+     *      ),
+     *   )
+     */
+    public function all () {
+        return $this->successWithDataRespond(UserLinksResource::collection(Auth::guard('api')->user()->links),'عملیات موفق');
     }
 }

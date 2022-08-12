@@ -29,9 +29,6 @@ use OpenApi\Annotations as OA;
  *       in="header",
  *       name="Authorization",
  * )
- *
- *
- *
  */
 class Controller extends BaseController
 {

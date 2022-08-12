@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\api\v1\user;
 
-use App\Http\Controllers\api\Traits\ApiResponder;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\api\v1\user\auth\userRegisterRequest;
-use App\Repositories\User\UserRepositoryInterface;
 use Exception;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use OpenApi\Annotations as OA;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\api\Traits\ApiResponder;
+use App\Repositories\User\UserRepositoryInterface;
+use App\Http\Requests\api\v1\user\auth\userRegisterRequest;
 
 class AuthController extends Controller
 {
@@ -69,21 +70,6 @@ class AuthController extends Controller
      *          )
      *      ),
      *
-     * @OA\Response(
-     *          response=404,
-     *          description="Not Found ",
-     *          @OA\MediaType(
-     *              mediaType="application/json",
-     *              @OA\Schema(
-     *                  @OA\Property(property="error", type="object",
-     *                      @OA\Property(property="code", type="number",default="404"),
-     *                      @OA\Property(property="details",type="string")
-     *                  ),
-     *                  @OA\Property(property="message",type="string", default="رکورد مورد نظر یافت نشد"),
-     *                  @OA\Property(property="success",type="boolean", default="false")
-     *              )
-     *          )
-     *      ),
      *   )
      */
     public function register(userRegisterRequest $request)

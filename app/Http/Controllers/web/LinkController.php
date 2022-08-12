@@ -28,6 +28,7 @@ class LinkController extends Controller
         try {
             return redirect($link->main_link);
         } catch (Exception $error){
+            dd($error);
            return abort(404);
         }
     }
