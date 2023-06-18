@@ -9,6 +9,8 @@ class Link extends Model
 {
     /*--------- Const Variables ---------*/
 
+    public const COLUMN_ID = 'id';
+    public const COLUMN_USER_ID = 'user_id';
 
     /*------------ Variables ------------*/
     protected $table = 'links';
@@ -19,27 +21,19 @@ class Link extends Model
         'user_id',
     ];
 
-    protected $hidden = [
-    ];
-
-    protected $casts = [
-    ];
-
-
     /*------------ Relations ------------*/
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, self::COLUMN_USER_ID, self::COLUMN_ID);
     }
-
 
     /*-------------- Scopes -------------*/
 
 
     /*---------- Other Functions --------*/
 
-    public function getRouteKeyName()
+    public function getRouteKeyName(): string
     {
         return 'shorten_link';
     }

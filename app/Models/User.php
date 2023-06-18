@@ -15,6 +15,7 @@ class User extends Authenticatable
 
     /*--------- Const Variables ---------*/
 
+    public const COLUMN_ID = 'id';
 
     /*------------ Variables ------------*/
     protected $table = 'users';
@@ -35,14 +36,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
     /*------------ Relations ------------*/
 
     public function links(): HasMany
     {
-        return $this->hasMany(Link::class);
+        return $this->hasMany(Link::class, Link::COLUMN_USER_ID, self::COLUMN_ID);
     }
-
 
     /*-------------- Scopes -------------*/
 
@@ -53,5 +52,4 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = Hash::make($value);
     }
-
 }

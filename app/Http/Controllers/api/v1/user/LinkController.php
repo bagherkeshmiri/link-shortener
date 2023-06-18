@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api\v1\user;
 
+use App\Models\Link;
 use Exception;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -9,12 +10,8 @@ use OpenApi\Annotations as OA;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Resources\UserLinksResource;
+use App\Http\Resources\LinksResource;
 use App\Http\Controllers\api\Traits\ApiResponder;
-use App\Repositories\Link\LinkRepositoryInterface;
-
-
 
 /**
  * @OA\Post(
@@ -70,38 +67,16 @@ class LinkController extends Controller
 {
     use ApiResponder;
 
-    protected object $linkRepository;
-
-
-    /**
-     * generate shorten the link address
-     * @return string
-     */
-    public function generateLink()
+    public function generateLink(): string
     {
         $shorten_link = Str::random(10);
-        while($this->linkRepository->getModel()->where('shorten_link',$shorten_link)->first()){
+        while (Link::query()->select(['shorten_link'])->where('shorten_link', $shorten_link)->first()) {
             $shorten_link = Str::random(10);
         }
         return $shorten_link;
     }
 
-
-    public function __construct(LinkRepositoryInterface $linkRepository)
-    {
-        $this->linkRepository = $linkRepository;
-
-    }
-
-
     /**
-     * store shorten link in links table
-     * @param Request $request
-     * @return JsonResponse
-     *
-     *
-     *
-     * /**
      * @OA\Get(
      * path="/link/shorten?link=your-link",
      * tags={"Links"},
@@ -175,25 +150,32 @@ class LinkController extends Controller
      *      ),
      *   )
      */
-    public function shorten(Request $request)
+    public function shorten(Request $request): jsonResponse
     {
+        $request->validate([
+            'link' => 'required',
+        ]);
+
         $data = [
             'main_link' => $request->input('link'),
             'shorten_link' => $this->generateLink(),
-            'user_id' => Auth::guard('api')->user()->id
+            'user_id' => auth()->user()->id,
         ];
+
         DB::beginTransaction();
-        try{
-            $this->linkRepository->create($data);
+        try {
+            Link::query()->create($data);
             DB::commit();
-            return $this->successWithDataRespond( [ 'main-link' => $data['main_link'] , 'shorten_link' => url('').'/'.$data['shorten_link'] ],'عملیات موفق');
-        } catch(Exception $error){
+            $result = [
+                'link' => $data['main_link'],
+                'shorten_link' => url('') . '/' . $data['shorten_link'],
+            ];
+            return $this->successWithDataRespond($result, __('messages.successful_operation'));
+        } catch (Exception) {
             DB::rollBack();
             return $this->errorRespond('خظا در عملیات');
         }
     }
-
-
 
     /**
      *
@@ -262,7 +244,9 @@ class LinkController extends Controller
      *      ),
      *   )
      */
-    public function all () {
-        return $this->successWithDataRespond(UserLinksResource::collection(Auth::guard('api')->user()->links),'عملیات موفق');
+    public function all(): jsonResponse
+    {
+        $data = LinksResource::collection(auth()->user()->links);
+        return $this->successWithDataRespond($data, 'عملیات موفق');
     }
 }
