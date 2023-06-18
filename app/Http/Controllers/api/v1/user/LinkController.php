@@ -38,15 +38,16 @@ class LinkController extends Controller
         try {
             Link::query()->create($data);
             DB::commit();
-            $result = [
-                'link' => $data['main_link'],
-                'shorten_link' => url('') . '/' . $data['shorten_link'],
-            ];
         } catch (Exception) {
             DB::rollBack();
-            return responseSuccess();
+            return responseError();
         }
-        return responseSuccess();
+        return responseSuccess([
+            'data' => [
+                'link' => $data['main_link'],
+                'shorten_link' => url('') . '/r/' . $data['shorten_link'],
+            ]
+        ]);
     }
 
     public function all(): jsonResponse

@@ -16,7 +16,7 @@ Route::post('/register', [AuthController::class, 'register']);
 
 Route::middleware(['apiHeadersCheck', 'auth:sanctum'])->group(function () {
     Route::prefix('link')->controller(LinkController::Class)->group(function () {
-        Route::get('/shorten', 'shorten');
+        Route::post('/shorten', 'shorten');
         Route::get('/all', 'all');
     });
 
