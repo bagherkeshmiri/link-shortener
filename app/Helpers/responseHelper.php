@@ -29,3 +29,4 @@ function responseError(array $data = [], $statusCode = Response::HTTP_OK): JsonR
 
     return response()->json($result, $statusCode);
 }
+
