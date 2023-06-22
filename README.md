@@ -36,6 +36,11 @@ composer update
  php artisan migrate --seed
 ```
 
+5 - For a beautiful display of project logs, refer to :
+```bash
+ {APP_URL}/log-viewer
+```
+ - Laravel Log Viewer package : https://github.com/opcodesio/log-viewer
 
 ## Contributing
 Thank you for participating in this project! \
