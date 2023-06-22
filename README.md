@@ -40,7 +40,13 @@ composer update
 ```bash
  {APP_URL}/log-viewer
 ```
- - Laravel Log Viewer package : https://github.com/opcodesio/log-viewer
+
+6 - If there is a problem with the log screen, run the following command
+```bash
+ php artisan log-viewer:publish
+```
+- Laravel Log Viewer package : https://github.com/opcodesio/log-viewer
+
 
 ## Contributing
 Thank you for participating in this project! \
