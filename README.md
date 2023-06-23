@@ -4,20 +4,21 @@
 
 <h1 align="center">Laravel link shortener</h1>
 
-<p align="center">
+<div align="center">
 <a href="https://github.com/bagherkeshmiri/Link-Shortener/releases/">
-<img src="https://img.shields.io/github/release/bagherkeshmiri/Link-Shortener?include_prereleases=&sort=semver&color=red" alt="GitHub release">
+    <img src="https://img.shields.io/github/release/bagherkeshmiri/Link-Shortener?include_prereleases=&sort=semver&color=red" alt="GitHub release">
 </a>
-<a href="#license">
 <img src="https://img.shields.io/badge/License-MIT-green" alt="License">
+<a href="https://github.com/bagherkeshmiri/Link-Shortener/releases/">
+    <img src="https://img.shields.io/github/tag/bagherkeshmiri/Link-Shortener?include_prereleases=&sort=semver&color=blue" alt="GitHub tag">
 </a>
-<a href="https://github.com/bagherkeshmiri/Link-Shortener/releases/"><img src="https://img.shields.io/github/tag/bagherkeshmiri/Link-Shortener?include_prereleases=&sort=semver&color=blue" alt="GitHub tag"></a>
-<a href="https://"><img src="https://img.shields.io/badge/downloads-1k-ffb84d" alt="downloads - 1k"></a>
-<a href="https://www.mysql.com/" title="Go to MySQL homepage"><img src="https://img.shields.io/badge/MySQL-%3E=5.7-blue?logo=mysql&logoColor=white" alt="Made with MySQL"></a>
-<a href="/CONTRIBUTING.md" title="Go to contributions doc"><img src="https://img.shields.io/badge/contributions-welcome-yellow" alt="contributions - welcome"></a>
+<img src="https://img.shields.io/badge/downloads-1k-ffb84d" alt="downloads - 1k">
+<a href="https://www.mysql.com/" title="Go to MySQL homepage">
+    <img src="https://img.shields.io/badge/MySQL-%3E=5.7-blue?logo=mysql&logoColor=white" alt="Made with MySQL">
+</a>
+<img src="https://img.shields.io/badge/contributions-welcome-yellow" alt="contributions - welcome">
 <img src="https://img.shields.io/badge/maintained-yes-blue" alt="maintained - yes">
-<a href="https://github.com/features/actions" title="Go to GitHub Actions homepage"><img src="https://img.shields.io/badge/CI-GitHub_Actions-red?logo=github-actions&logoColor=white" alt="Made with GH Actions"></a>
-<p>
+</div>
 
 ## About laravel link shortener
 The link shortener web service is written based on the Laravel framework, which can perform all the services related to shortening links and managing them without problems and independently as a web software. To use this free web software, you only need to do the setup steps in order
