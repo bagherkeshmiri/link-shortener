@@ -12,7 +12,7 @@
 <a href="https://github.com/bagherkeshmiri/Link-Shortener/releases/">
     <img src="https://img.shields.io/github/tag/bagherkeshmiri/Link-Shortener?include_prereleases=&sort=semver&color=blue" alt="GitHub tag">
 </a>
-<img src="https://img.shields.io/badge/downloads-1k-ffb84d" alt="downloads - 1k">
+<img src="https://img.shields.io/badge/downloads-1k-green" alt="downloads - 1k">
 <a href="https://www.mysql.com/" title="Go to MySQL homepage">
     <img src="https://img.shields.io/badge/MySQL-%3E=5.7-blue?logo=mysql&logoColor=white" alt="Made with MySQL">
 </a>
