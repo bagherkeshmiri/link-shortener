@@ -1,4 +1,6 @@
-<img align="center" src="https://droidtechknow.com/top-things/url-shortener-to-make-money/images/url-shortener.jpg">
+<div align="center">
+<img src="https://droidtechknow.com/top-things/url-shortener-to-make-money/images/url-shortener.jpg">
+</div>
 
 <h1 align="center">Laravel link shortener</h1>
 
