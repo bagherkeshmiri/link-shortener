@@ -1,5 +1,8 @@
+<img align="center" src="https://droidtechknow.com/top-things/url-shortener-to-make-money/images/url-shortener.jpg">
+
 <h1 align="center">Laravel link shortener</h1>
 
+<p align="center">
 <a href="https://github.com/bagherkeshmiri/Link-Shortener/releases/">
 <img src="https://img.shields.io/github/release/bagherkeshmiri/Link-Shortener?include_prereleases=&sort=semver&color=red" alt="GitHub release">
 </a>
@@ -12,6 +15,7 @@
 <a href="/CONTRIBUTING.md" title="Go to contributions doc"><img src="https://img.shields.io/badge/contributions-welcome-yellow" alt="contributions - welcome"></a>
 <img src="https://img.shields.io/badge/maintained-yes-blue" alt="maintained - yes">
 <a href="https://github.com/features/actions" title="Go to GitHub Actions homepage"><img src="https://img.shields.io/badge/CI-GitHub_Actions-red?logo=github-actions&logoColor=white" alt="Made with GH Actions"></a>
+<p>
 
 ## About laravel link shortener
 The link shortener web service is written based on the Laravel framework, which can perform all the services related to shortening links and managing them without problems and independently as a web software. To use this free web software, you only need to do the setup steps in order
