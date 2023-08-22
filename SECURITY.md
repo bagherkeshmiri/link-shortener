@@ -9,4 +9,4 @@ reported vulnerability, what to expect if the vulnerability is accepted or
 declined, etc.
 
 
-If you discover a security vulnerability within Laravel student exams, please send an e-mail to Bagher Keshmiri via bagherkeshmiri@gmail.com. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within Laravel link shortener, please send an e-mail to Bagher Keshmiri via [bagherkeshmiri@gmail.com](mailto:bagherkeshmiri@gmail.com). All security vulnerabilities will be promptly addressed.
